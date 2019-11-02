@@ -51,12 +51,14 @@ app.get('/post/:id', (req, res) => {
 app.post('/post', (req, res) => {
   console.log("body: ", req.body)
   console.log("headers: ", req.headers.authorization)
-  res.status(200).json({
-    success: true,
-    data: {
-      ...req.body
-    }
-  })
+  setTimeout(() => {
+    res.status(200).json({
+      success: true,
+      data: {
+        ...req.body
+      }
+    })
+  }, 1200)
 })
 
 app.listen(process.env.PORT || port, () => console.log(`Example app listening on port ${port}!`))
